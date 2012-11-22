@@ -59,6 +59,8 @@ to use by a broader range of applications.
 %install
 %make_install
 
+%remove_docs
+
 %post -p /sbin/ldconfig
 
 %postun -p /sbin/ldconfig
