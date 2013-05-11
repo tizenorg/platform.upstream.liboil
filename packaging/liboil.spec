@@ -66,6 +66,7 @@ to use by a broader range of applications.
 %postun -p /sbin/ldconfig
 
 %files
+%license COPYING
 %defattr (-, root, root)
 %{_libdir}/*.so.*
 
