@@ -8,6 +8,7 @@ License:        BSD-2-Clause
 Summary:        Library of Optimized Inner Loops
 Source:         %{name}-%{version}.tar.bz2
 Source2:        baselibs.conf
+Source1001: 	liboil.manifest
 
 %description
 Liboil is a library of simple functions that are optimized for various
@@ -46,6 +47,7 @@ to use by a broader range of applications.
 
 %prep
 %setup -q
+cp %{SOURCE1001} .
 
 %build
 %configure --disable-static --with-pic
@@ -66,11 +68,13 @@ to use by a broader range of applications.
 %postun -p /sbin/ldconfig
 
 %files
+%manifest %{name}.manifest
 %license COPYING
 %defattr (-, root, root)
 %{_libdir}/*.so.*
 
 %files devel
+%manifest %{name}.manifest
 %defattr (-, root, root)
 %{_bindir}/oil-bugreport
 %{_includedir}/liboil-*
